@@ -14,7 +14,7 @@ Start in 00-install/
 | 5       | 9    | (Over/under)-fitting and interactions (Chp. 7 & 8)                     | Andrzej       |
 | 6       | 10   | Interactions between regressors (Chp. 8)                               | Andrzej       |
 | 7       | 11   | Markov Chain Monte Carlo (Chp. 9)                                      | Andrzej       |
-| 8       | 12   | Guest lecture or SVI                                                   | Andrzej/Raúl? |
+| 8       | 12   | Guest / TBD talk                                                       | Andrzej/Raúl? |
 |         | 13   | *No Lecture: Holy week*                                                |               |
 | 9       | 14   | Generalized Linear Model (Chp. 10)                                     | Raúl          |
 | 10      | 15   | Binomial/Poisson and multinomial regression (Chp. 11)                  | Raúl          |
