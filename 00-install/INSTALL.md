@@ -26,7 +26,7 @@ systems with very minor modifications.
 
 6. Activate it: `conda activate prpro-2025`
 
-7. Reigster the new enviornment as a valid notebook kernel:
+7. Register the new enviornment as a valid notebook kernel:
 
 ```sh
    python -m ipykernel install --user --name prpro-2025 --display-name "prpro-2025"
