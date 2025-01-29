@@ -5,6 +5,7 @@ channels:
   - conda-forge
 dependencies:
   - arviz==0.20.0
+  - ipywidgets
   - jupyterlab==4.3.4
   - pandas==2.2.3
   - pip
