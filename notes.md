@@ -40,3 +40,51 @@ The mean of the exponential distribution is $1/\lambda$ and the variance is $1/\
   - verry important to do this.
 - Understanding the standard deviation of the data is important.
   - The standard deviation of the data is the amount it fluctuates around the mean.
+
+## week 4
+
+Predictors that are correlated with each other can mask each other's effect on the outcome.
+This will make the model worse.
+
+### Causal inference
+
+#### Fork: the classic hidden confounder variable
+
+- condition on Z, make X and Y independent, even if they are dependent on a common cause
+- the problem appears if we lack variables in the model; we don't condition on Z, and spurious dependence appears; __include Z__ to expose non-causal paths
+- __the path from X and Y is blocked by conditioning on Z__
+- Example: WaffleHouse-DivorceRate
+
+#### Pipe: post-treatment bias
+
+- condition on Z, X becomes independent of Y
+- Appears when we have needless variables in the model, __remove Z__ to expose the causal path
+- __the path from X to Y is blocked by conditioning on Z__
+- Example: treatment-fungi-growth
+
+#### Collider: X and Y are independent unless you condition on Z.
+
+- the problem appears if we condition on a collider (perhaps unconsciously) and introduce a false dependency from Y or to X (or other variables)
+- one has to be careful if the data we have is not conditioned on a collider already
+- __the path from X to Y is open when conditioning on Z__; __remove Z__ to avoid the non-causal path
+- Example: the modified fungi example, newsworthiness-trustworthiness, aga-marriage-happiness
+
+
+#### Descendant: Any of the above indirectly
+
+- Note that the descendant problem can be a variant of the fork, the pipe, or the collider pattern
+- all these problems appear even if we don't condition on Z, but on a variable correlated with it (a descendant D)
+
+### A procedure to address these 4 confounds, assuming you have a complete DAG
+
+Given a causal DAG, it is always possible to say which, if any, variables one must control for in order to shut all the backdoor paths (non-causal paths), and which variables one must not control for, in order to avoid making new confounds. 
+
+1. List all path connecting $X$ (the potential cause of interest) to $Y$ (the outcome of interest)
+2. Classify each path by whether it is open or __closed (contains a collider)__
+3. A path is a __backdoor__ if it has an arrow entering $X$
+4. Decide which variables to condition on (to include in the model) or not to close the non-causal paths, using the patterns listed above, for forks, pipes, and colliders.
+
+Because the set of rules is finite, there are libraries that can compute it for you, but it is always good to understand the problems yourself from the first principles.
+
+The `CausalGraphicalModels` has two useful functions `is_valid_backdoor_adjustment_set` and `get_all_backdoor_adjustment_sets`. The first one checks if a set of variables is a valid backdoor adjustment set, and the second one returns all valid backdoor adjustment sets.
+

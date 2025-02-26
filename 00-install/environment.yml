@@ -4,21 +4,22 @@ channels:
   - default
   - conda-forge
 dependencies:
-  - arviz==0.20.0
+  - arviz>=0.20.0
   - ipywidgets
-  - jupyterlab==4.3.4
-  - pandas==2.2.3
+  - jupyterlab>=4.3.4
+  - pandas>=2.2.3
   - pip
-  - pooch==1.8.2 # used by xarray, already in the bayes week
-  - pymc==5.19.1
-  - seaborn==0.13.2
+  - pooch>=1.8.2 # used by xarray, already in the bayes week
+  - pymc>=5.19.1
+  - seaborn>=0.13.2
   - statsmodels
   - tabulate
   - watermark
-  - matplotlib==3.10.0
-  - xarray==2024.11.0
+  - matplotlib>=3.10.0
+  - xarray>=2024.11.0
+  - m2w64-toolchain_win-64
   - pip:
-      - "git+https://github.com/itu-square/causalgraphicalmodels.git" 
+      - "git+https://github.com/itu-square/causalgraphicalmodels.git"
         # temporarily, until causalgraphicalmodels stabilize
 variables:
-  PYTHONNOUSERSITE: '1'
+  PYTHONNOUSERSITE: "1"
