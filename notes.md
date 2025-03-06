@@ -150,3 +150,27 @@ with pm.Model() as model:
     trace = pm.sample(2000, tune=1000, nuts_kwargs={'target_accept': 0.95})
 ```
 
+# week 6
+
+Agenda: 
+- Interactions with categorical regressors
+- Interactions with continuous regressors
+
+## Interactions
+
+We have previously only used linear models, but we can also use interactions between variables.
+
+for example, if we have a model like this:
+M = d + b0*X0 + b1*X1
+
+here we might be missing an interaction between X0 and X1. We can add this interaction by adding a new term to the model:
+
+M = d + b0*f(X0, X1)
+or maybe:
+M = d + b0*X0 + b1*X1 + b2*f(X0, X1)
+
+where f(X0, X1) is the interaction term.
+
+## Interactions with categorical regressors
+
+
