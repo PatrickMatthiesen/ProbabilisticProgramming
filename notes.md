@@ -88,3 +88,65 @@ Because the set of rules is finite, there are libraries that can compute it for 
 
 The `CausalGraphicalModels` has two useful functions `is_valid_backdoor_adjustment_set` and `get_all_backdoor_adjustment_sets`. The first one checks if a set of variables is a valid backdoor adjustment set, and the second one returns all valid backdoor adjustment sets.
 
+
+# week 5
+
+**Agenda**
+1. Overfitting and underfitting
+2. Some (Information) Theory on accuracy of predictions
+3. Curbing overfitting via regularization
+4. Estimating accuracy of prediction (CV, PSIS, WAIC)
+5. Prediction accuracy vs causality, robust regression
+
+## Overfitting and underfitting
+
+- Overfitting: the model is too complex, and it fits the noise in the data.
+- Underfitting: the model is too simple, and it does not capture the underlying structure of the data.
+
+### How to detect overfitting
+
+- Overfitting is detected by comparing the training and test error.
+- If we train on a the data multiple times and leave different parts of the data set out. Then if the mean prediction function veries a lot, then the model is overfitting. The functions will be very different as the model will focus too much on the data that it is given. This is called cross-validation. 
+
+## Information Theory
+
+- Information theory is a branch of applied mathematics and electrical engineering involving the quantification of information.
+
+### Entropy
+
+- Entropy is a measure of the uncertainty of a random variable.
+- The entropy of a random variable is the average amount of information produced by a random variable.
+
+Shannon's entropy is defined as:
+
+$$
+H(X) = -\sum_{i=1}^n p(x_i) \log_2 p(x_i)
+$$
+
+where $p(x_i)$ is the probability of the $i$-th outcome.
+
+### Regularization
+
+- Regularization is a technique used to prevent overfitting.
+- Regularization adds a penalty term to the loss function.
+
+```python
+with pm.Model() as model:
+    alpha = pm.Normal('alpha', mu=0, sd=10)
+    beta = pm.Normal('beta', mu=0, sd=10, shape=2)
+    sigma = pm.HalfNormal('sigma', sd=1)
+    mu = alpha + beta[0]*X1 + beta[1]*X2
+    y = pm.Normal('y', mu=mu, sd=sigma, observed=Y)
+    trace = pm.sample(2000, tune=1000)
+```
+
+```python
+with pm.Model() as model:
+    alpha = pm.Normal('alpha', mu=0, sd=10)
+    beta = pm.Normal('beta', mu=0, sd=10, shape=2)
+    sigma = pm.HalfNormal('sigma', sd=1)
+    mu = alpha + beta[0]*X1 + beta[1]*X2
+    y = pm.Normal('y', mu=mu, sd=sigma, observed=Y)
+    trace = pm.sample(2000, tune=1000, nuts_kwargs={'target_accept': 0.95})
+```
+
