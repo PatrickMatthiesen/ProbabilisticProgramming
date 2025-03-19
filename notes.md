@@ -89,7 +89,7 @@ Because the set of rules is finite, there are libraries that can compute it for 
 The `CausalGraphicalModels` has two useful functions `is_valid_backdoor_adjustment_set` and `get_all_backdoor_adjustment_sets`. The first one checks if a set of variables is a valid backdoor adjustment set, and the second one returns all valid backdoor adjustment sets.
 
 
-# week 5
+## week 5
 
 **Agenda**
 1. Overfitting and underfitting
@@ -98,21 +98,21 @@ The `CausalGraphicalModels` has two useful functions `is_valid_backdoor_adjustme
 4. Estimating accuracy of prediction (CV, PSIS, WAIC)
 5. Prediction accuracy vs causality, robust regression
 
-## Overfitting and underfitting
+### Overfitting and underfitting
 
 - Overfitting: the model is too complex, and it fits the noise in the data.
 - Underfitting: the model is too simple, and it does not capture the underlying structure of the data.
 
-### How to detect overfitting
+#### How to detect overfitting
 
 - Overfitting is detected by comparing the training and test error.
-- If we train on a the data multiple times and leave different parts of the data set out. Then if the mean prediction function veries a lot, then the model is overfitting. The functions will be very different as the model will focus too much on the data that it is given. This is called cross-validation. 
+- If we train on a the data multiple times and leave different parts of the data set out. Then if the mean prediction function varies a lot, then the model is overfitting. The functions will be very different as the model will focus too much on the data that it is given. This is called cross-validation. 
 
-## Information Theory
+### Information Theory
 
 - Information theory is a branch of applied mathematics and electrical engineering involving the quantification of information.
 
-### Entropy
+#### Entropy
 
 - Entropy is a measure of the uncertainty of a random variable.
 - The entropy of a random variable is the average amount of information produced by a random variable.
@@ -125,7 +125,7 @@ $$
 
 where $p(x_i)$ is the probability of the $i$-th outcome.
 
-### Regularization
+#### Regularization
 
 - Regularization is a technique used to prevent overfitting.
 - Regularization adds a penalty term to the loss function.
@@ -150,13 +150,13 @@ with pm.Model() as model:
     trace = pm.sample(2000, tune=1000, nuts_kwargs={'target_accept': 0.95})
 ```
 
-# week 6
+## week 6
 
 Agenda: 
 - Interactions with categorical regressors
 - Interactions with continuous regressors
 
-## Interactions
+### Interactions
 
 We have previously only used linear models, but we can also use interactions between variables.
 
@@ -171,6 +171,32 @@ M = d + b0*X0 + b1*X1 + b2*f(X0, X1)
 
 where f(X0, X1) is the interaction term.
 
-## Interactions with categorical regressors
+### Interactions with categorical regressors
 
+## week 7
 
+### Beta-Binomial model
+
+Beta is a conjugate prior for the binomial distribution. The beta-binomial model is a generalization of the binomial distribution, where the probability of success is not fixed, but follows a beta distribution.
+
+The beta-binomial model is defined as:
+
+$$
+y \sim \mathrm{Binomial}(n, \theta)
+$$
+
+$$
+\theta \sim \mathrm{Beta}(\alpha, \beta)
+$$
+
+where $\alpha$ and $\beta$ are the shape parameters of the beta distribution.
+
+Beta prior can be a bad choice if the data is not binomial. For example, if the data is not binary, but continuous, the beta prior is not a good choice.
+
+### Monte Carlo 
+
+### Metrolpolis
+
+### Gibbs
+
+### Hamiltonian Monte Carlo
