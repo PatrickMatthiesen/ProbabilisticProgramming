@@ -14,11 +14,12 @@ Start in 00-install/
 | 5       | 26/02 | (Over/under)-fitting and interactions (Chp. 7 & 8)                     | Andrzej                                                                                                 |
 | 6       | 05/03 | Interactions between regressors (Chp. 8)                               | Andrzej                                                                                                 |
 | 7       | 12/03 | Markov Chain Monte Carlo (Chp. 9)                                      | Andrzej                                                                                                 |
-| 8       | 19/03 | Generalized Linear Model (Chp. 10)                                     | Raúl                                                                                                    |
+| 8       | 19/03 | Generalized Linear Model (Chp. 10)                                     | Andrzej                                                                                                 |
 | 9       | 26/03 | Binomial/Poisson and multinomial regression (Chp. 11)                  | Raúl                                                                                                    |
-| 10      | 02/04 | Guest lecture                                                          | [Miguel González Duque](https://www.miguelgondu.com/) (ML Engineer @ [dbtune](https://www.dbtune.com/)) |
+| 10      | 02/04 | Guest lecture 1                                                        | [Miguel González Duque](https://www.miguelgondu.com/) (ML Engineer @ [dbtune](https://www.dbtune.com/)) |
+|         |       | Guest lecture 2                                                        | Oleg Jarma Montoya (ITU)                                                                                |
 | 11      | 09/04 | Over-dispersion, zero-inflated outcomes, ordered categorical (Chp. 12) | Raúl                                                                                                    |
-|         |       | *No Lecture: Easter*                                                   |                                                                                                         |
+|         | 16/04 | *No Lecture: Easter*                                                   |                                                                                                         |
 | 12      | 23/04 | Multilevel models (Chp. 13)                                            | Raúl                                                                                                    |
 | 13      | 30/04 | Bayesian Inference for Privacy Risk Analysis + Exam publication        | Raúl                                                                                                    |
     
