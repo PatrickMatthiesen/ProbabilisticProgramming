@@ -200,3 +200,43 @@ Beta prior can be a bad choice if the data is not binomial. For example, if the 
 ### Gibbs
 
 ### Hamiltonian Monte Carlo
+
+
+## week 8
+
+### Big Entropy and the Generalized Linear Model
+
+- The entropy of a distribution is a measure of the uncertainty of the distribution.
+- The entropy of a distribution is the average amount of information produced by a random variable.
+
+### Agenda
+
+1. __Maximum Entropy__ Distributions
+2. __Generalized Linear Model__ (the link functions)
+3. __Summary__ of the regressions (time permitting)
+
+### Entropy Definition
+
+__Entropy__ (discrete and continuous, sometimes called differential entropy)
+
+....
+
+### Maximum Entropy Distributions
+
+We want to use the distribution that has the maximum entropy, given the constraints we have.
+
+### Generalized Linear Model
+
+We have previously used linear models, but we can also use generalized linear models.
+
+The generalized linear model will be a non gaussian distribution with a function that maps us to our desired range.
+
+For instance, if we wanted to optimize the probability of success in a Binomial distribution, we could use the following model:
+
+$$ y_i \sim \mathrm{Binomial}(n, p_i) $$
+
+$$ f(p_i) = \alpha + \beta(x_i - \overline x) $$
+
+where $f(p_i)$ is the link function, and $\alpha + \beta(x_i - \overline x)$ is the linear predictor.
+
+
