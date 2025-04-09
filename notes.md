@@ -225,6 +225,8 @@ __Entropy__ (discrete and continuous, sometimes called differential entropy)
 
 We want to use the distribution that has the maximum entropy, given the constraints we have.
 
+The constraints are the moments of the distribution. The moments are the expected values of the distribution.
+
 ### Generalized Linear Model
 
 We have previously used linear models, but we can also use generalized linear models.
@@ -237,6 +239,25 @@ $$ y_i \sim \mathrm{Binomial}(n, p_i) $$
 
 $$ f(p_i) = \alpha + \beta(x_i - \overline x) $$
 
-where $f(p_i)$ is the link function, and $\alpha + \beta(x_i - \overline x)$ is the linear predictor.
+where $f(p_i)$ is the link function, and $\alpha + \beta(x_i - \overline x)$ is the linear predictor and $\overline x$ is the mean of the predictor.
 
+## week 9
+
+### Contrast
+
+(good for the exam)
+
+- Contrast is the difference between the expected value of the outcome variable for two different levels of a predictor variable.
+
+### Poisson regression
+
+- Poisson regression is a type of regression used for count data.
+- Poisson regression is a generalized linear model with a log link function.
+- Poisson regression is used when the outcome variable is a count variable, and the predictor variables are continuous or categorical.
+
+### Binomial regression
+
+- Binomial regression is a type of regression used for binary data.
+
+## week 11
 
